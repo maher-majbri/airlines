@@ -1262,6 +1262,7 @@ article {
   background: #fff;
   padding: 25px 0;
   color: #555;
+  border-top:solid 1px #ccc;
 }
 
 #footer .copyright {

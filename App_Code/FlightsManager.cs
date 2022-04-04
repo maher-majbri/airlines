@@ -17,7 +17,7 @@ public class FlightsManager
 		//
 	}
 
-     public static void Insert(string code,int company_id,int fromcityid,int tocityid, double price, string clas )
+    public static void Insert(string code,int company_id,int fromcityid,int tocityid, double price, string clas )
     {
         SqlCommand cmd = new SqlCommand("INSERT INTO Flights(FlightCode,CompanyID,FromCityID,ToCityID,FlightPrice,FlightClass) VALUES (@FlightCode,@CompanyID,@FromCityID,@ToCityID,@FlightPrice,@FlightClass)");
         cmd.Parameters.AddWithValue("@FlightCode", code);
@@ -29,8 +29,7 @@ public class FlightsManager
         Database.ExecuteCommand(cmd);
     }
 
-
-     public void Update(string code, int company_id, int fromcityid, int tocityid, int price, string clas, int id)
+    public static void Update(string code, int company_id, int fromcityid, int tocityid, double price, string clas, int id)
     {
         SqlCommand cmd = new SqlCommand("UPDATE Flights SET FlightCode=@FlightCode,CompanyID=@CompanyID,FromCityID=@FromCityID,ToCityID=@ToCityID,FlightPrice=@FlightPrice,FlightClass=@FlightClass WHERE FlightID=@FlightID");
         cmd.Parameters.AddWithValue("@FlightCode", code);
@@ -38,19 +37,19 @@ public class FlightsManager
         cmd.Parameters.AddWithValue("@FromCityID", fromcityid);
         cmd.Parameters.AddWithValue("@ToCityID", tocityid);
         cmd.Parameters.AddWithValue("@FlightPrice", price);
-        cmd.Parameters.AddWithValue("@Class",clas);
+        cmd.Parameters.AddWithValue("@FlightClass",clas);
         cmd.Parameters.AddWithValue("@FlightID", id);
         Database.ExecuteCommand(cmd);
     }
 
-     public void Delete(int id)
+    public static void Delete(int id)
     {
         SqlCommand cmd = new SqlCommand("DELETE  FROM Flights WHERE FlightID=@FlightID");
         cmd.Parameters.AddWithValue("@FlightID", id);
         Database.ExecuteCommand(cmd);
     }
 
-    public DataTable Select()
+    public static DataTable Select()
     {
         return Database.Execute("SELECT * FROM FlightsView");
     }
@@ -62,7 +61,7 @@ public class FlightsManager
         return Database.Execute(cmd);
     }
 
-    public DataRow Select(int id)
+    public static DataRow Select(int id)
     {
         SqlCommand cmd = new SqlCommand("SELECT * FROM Flights WHERE FlightID=@FlightID");
         cmd.Parameters.AddWithValue("@FlightID", id);
@@ -75,6 +74,12 @@ public class FlightsManager
         {
             return null;
         }
+    }
+
+    public static int GetCountByCompany(int company_id) {
+        SqlCommand cmd = new SqlCommand("SELECT count(*) FROM Flights WHERE CompanyID=@CompanyID");
+        cmd.Parameters.AddWithValue("@CompanyID", company_id);
+        return Database.ExecuteScaler(cmd);
     }
 
     public static bool IsUsed(int id)

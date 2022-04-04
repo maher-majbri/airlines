@@ -7,7 +7,9 @@
     <h1 class="mt-5 display-6 text-capitalize text-center">Edit Flights</h1>
     <p class="text-center">Add, edit or delete your flights</p>
 
-    <div class="mb-3">
+   <asp:TextBox ID="txtID" runat="server" class="form-control" Visible="false" ></asp:TextBox>
+
+   <div class="mb-3">
       <label for="txtCode" class="form-label">Flight Code</label>
         <asp:TextBox ID="txtCode" runat="server" class="form-control" ></asp:TextBox>
     </div>
@@ -56,12 +58,15 @@
             <asp:BoundField DataField="ToCity" HeaderText="To" />
             <asp:BoundField DataField="FlightPrice" HeaderText="Price" />
             <asp:BoundField DataField="FlightClass" HeaderText="Class" />
+              <asp:HyperLinkField DataNavigateUrlFields="FlightID" 
+                  DataNavigateUrlFormatString="~/Company/Flights.aspx?id={0}" HeaderText="Select" 
+                  NavigateUrl="~/Company/Flights.aspx" Text="Edit/Delete" />
         </Columns>
     </asp:GridView>
     <asp:ObjectDataSource ID="odsTickets" runat="server" SelectMethod="SelectByCompany" 
         TypeName="FlightsManager">
         <SelectParameters>
-            <asp:SessionParameter DefaultValue="1" Name="company_id" SessionField="CompanyID" Type="Int32" />
+            <asp:SessionParameter Name="company_id" SessionField="CompanyID" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
    

@@ -77,8 +77,8 @@
                                     aria-expanded="false">
                                     Account
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Sign Out</a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">                                           <a class="dropdown-item" href="Settings.aspx">Settings</a>
+                                    <asp:LinkButton class="dropdown-item" ID="lbtn" runat="server" OnClick="lbtn_Click">Sign Out</asp:LinkButton>
                                 </div>
                             </li>
 

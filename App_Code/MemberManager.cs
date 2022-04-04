@@ -35,7 +35,7 @@ public class MemberManager
     {
         SqlCommand cmd = new SqlCommand("UPDATE Members SET MemberName=@MemberName,MemberEmail=@MemberEmail,MemberPhone=@MemberPhone,MemeberPassword=@MemeberPassword,CityID=@CityID WHERE MemberID=@MemberID");
         cmd.Parameters.AddWithValue("@MemberName", name);
-        cmd.Parameters.AddWithValue("@MemberEmail", email );
+        cmd.Parameters.AddWithValue("@MemberEmail", email);
         cmd.Parameters.AddWithValue("@MemberPhone", phone);
         cmd.Parameters.AddWithValue("@MemeberPassword", password);
         cmd.Parameters.AddWithValue("@CityID", city);
@@ -43,7 +43,27 @@ public class MemberManager
         Database.ExecuteCommand(cmd);
     }
 
-    public static  void Delete(int id)
+    public static void Update(string name, string email, string phone, int city, int id)
+    {
+        SqlCommand cmd = new SqlCommand("UPDATE Members SET MemberName=@MemberName,MemberEmail=@MemberEmail,MemberPhone=@MemberPhone,CityID=@CityID WHERE MemberID=@MemberID");
+        cmd.Parameters.AddWithValue("@MemberName", name);
+        cmd.Parameters.AddWithValue("@MemberEmail", email);
+        cmd.Parameters.AddWithValue("@MemberPhone", phone);
+        cmd.Parameters.AddWithValue("@CityID", city);
+        cmd.Parameters.AddWithValue("@MemberID", id);
+        Database.ExecuteCommand(cmd);
+    }
+
+
+    public static void Update(string password, int id)
+    {
+        SqlCommand cmd = new SqlCommand("UPDATE Members SET MemberPassword=@MemberPassword WHERE MemberID=@MemberID");
+        cmd.Parameters.AddWithValue("@MemberPassword", password);
+        cmd.Parameters.AddWithValue("@MemberID", id);
+        Database.ExecuteCommand(cmd);
+    }
+
+    public static void Delete(int id)
     {
         SqlCommand cmd = new SqlCommand("DELETE  FROM Members WHERE MemberID=@MemberID");
         cmd.Parameters.AddWithValue("@MemberID", id);

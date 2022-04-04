@@ -37,6 +37,21 @@ public class UsersManager
         cmd.Parameters.AddWithValue("@UserID", id);
     }
 
+    public static void Update(string name,string email, int id)
+    {
+        SqlCommand cmd = new SqlCommand("UPDATE Users SET UserName=@UserName, UserEmail=@UserEmail WHERE UserID=@UserID");
+        cmd.Parameters.AddWithValue("@UserName", name);
+        cmd.Parameters.AddWithValue("@UserEmail", email);
+        cmd.Parameters.AddWithValue("@UserID", id);
+    }
+
+    public static void Update(string password, int id)
+    {
+        SqlCommand cmd = new SqlCommand("UPDATE Users SET UserPassword=@UserPassword WHERE UserID=@UserID");
+        cmd.Parameters.AddWithValue("@UserPassword", password);
+        cmd.Parameters.AddWithValue("@UserID", id);
+    }
+
     public static void Delete(int id)
     {
         SqlCommand cmd = new SqlCommand("DELETE  FROM Users WHERE UserID=@UserID");

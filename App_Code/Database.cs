@@ -55,9 +55,20 @@ public class Database
     public static DataTable Execute(string sql)
     {
         DataTable dt = new DataTable();
-        SqlDataAdapter da = new SqlDataAdapter(sql,con);
+        SqlDataAdapter da = new SqlDataAdapter(sql, con);
         da.Fill(dt);
         return dt;
     }
+
+    public static int ExecuteScaler(SqlCommand cmd)
+    {
+        int result;
+        cmd.Connection = con;
+        Database.OpenConnection();
+        result = Convert.ToInt32(cmd.ExecuteScalar());
+        Database.CloseConnection();
+        return result;
+    }
+
 
 }

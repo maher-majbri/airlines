@@ -12,15 +12,27 @@ public partial class Login : System.Web.UI.Page
     {
 
     }
+
     protected void btnLogin_Click(object sender, EventArgs e)
     {
+        if (txtEmail.Text.Trim() == "" || txtPassword.Text.Trim() == "")
+        {
+            lblMessage.Text = "Please enter email and password to login.";
+        }
         DataRow dr = MemberManager.CheckLogin(txtEmail.Text, txtPassword.Text);
         if (dr == null)
         {
-            lblMessage.Text = "Login Fail";
+            lblMessage.Text = "Invalid login!";
         }
         else {
-            lblMessage.Text = "Hello " + dr["MemberName"].ToString();
+            lblMessage.Text = "";
+            Session["MemberID"] = dr["MemberID"];
+            Session["MemberDate"] = dr["MemberDate"];
+            Session["MemberName"] = dr["MemberName"];
+            Session["MemberEmail"] = dr["MemberEmail"];
+            Session["MemberPassword"] = dr["MemberPassword"];
+            Session["CityID"] = dr["CityID"];
+            Response.Redirect("Default.aspx");
         }
     }
 }

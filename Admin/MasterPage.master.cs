@@ -9,6 +9,19 @@ public partial class Admin_MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["UserID"] == null)
+        {
+            Response.Redirect("../");
+        }
 
+    }
+    protected void lbtn_Click(object sender, EventArgs e)
+    {
+        Session["UserID"] = null;
+        Session["UserName"] = null;
+        Session["UserEmail"] = null;
+        Session["UserPassword"] = null;
+        Session["UserType"] = null;
+        Response.Redirect("../");
     }
 }

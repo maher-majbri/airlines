@@ -51,12 +51,12 @@ public class ScheduleManager
         return Database.Execute("SELECT * FROM ScheduleView");
     }
 
-    //  public static DataTable SelectByCompany()
-    //{
-       
-    //}
-       
-    
+    public static int GetCountByCompany(int company_id)
+    {
+        SqlCommand cmd = new SqlCommand("SELECT count(*) FROM ScheduleView WHERE CompanyID=@CompanyID");
+        cmd.Parameters.AddWithValue("@CompanyID", company_id);
+        return Database.ExecuteScaler(cmd);
+    }
     
     //call in 
     public static DataTable SelectByFlight(int flight_id)

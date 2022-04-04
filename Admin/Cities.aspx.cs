@@ -46,20 +46,17 @@ public partial class Admin_Cities : System.Web.UI.Page
     }
     protected void btnDelete_Click(object sender, EventArgs e)
     {
-
         CityManager.Delete(Convert.ToInt16(txtID.Text));
         GridView1.DataBind();
         SetEdit();
         ClearForm();
-        GridView1.DataBind();
-
     }
+
     public void SetEdit()
     {
         btnAdd.Enabled = false;
         btnSave.Enabled = true;
         btnDelete.Enabled = true;
-
     }
 
     public void SetNew()

@@ -17,7 +17,8 @@ Slider Section Start
             <div class="block wow fadeInUp" data-wow-delay=".3s">
                 
                 <!-- Slider -->
-                <section class="cd-intro">
+                <section class="cd-intro"">
+
                        <div>
                 <div class="row">
                     <div class="col-lg-3">
@@ -95,7 +96,9 @@ Slider Section Start
                     </div>
                 </div>
 
-            </div>                </div>
+            </div>           
+                </section>
+
             </div>
         </div>
     </div>
@@ -141,9 +144,9 @@ Just choose the date of departure and return and the number of passengers and se
                     <div class="row">
                         <div class="col-md-12">
                             <div class="block">
-                                <h2 class="title wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">SO WHAT YOU THINK ?</h1>
-                                <p class="wow fadeInDown" data-wow-delay=".5s" data-wow-duration="500ms">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis,<br>possimus commodi, fugiat magnam temporibus vero magni recusandae? Dolore, maxime praesentium.</p>
-                                <a href="contact.html" class="btn btn-default btn-contact wow fadeInDown" data-wow-delay=".7s" data-wow-duration="500ms">Contact With Me</a>
+                                <h2 class="title wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">Do you have any questions?</h1>
+                                <p class="wow fadeInDown" data-wow-delay=".5s" data-wow-duration="500ms">If you have a quistion, you can always contact us,<br>Checkout our contact information in 'contact us' page.</p>
+                                <a href="Contact.aspx" class="btn btn-default btn-contact wow fadeInDown" data-wow-delay=".7s" data-wow-duration="500ms">Contact us</a>
                             </div>
                         </div>
                         

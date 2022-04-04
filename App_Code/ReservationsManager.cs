@@ -58,6 +58,14 @@ public class ReservationsManager
         return Database.Execute(cmd);
     }
 
+    //call in member dashboard
+    public static DataTable SelectByCompany(int company_id)
+    {
+        SqlCommand cmd = new SqlCommand("SELECT * FROM ReservationsView WHERE CompanyID=@CompanyID");
+        cmd.Parameters.AddWithValue("@CompanyID", company_id);
+        return Database.Execute(cmd);
+    }
+
     public static DataRow Select(int id)
     {
         SqlCommand cmd = new SqlCommand("SELECT * FROM ReservationsView WHERE ReservationsID=@ReservationsID");
@@ -73,5 +81,14 @@ public class ReservationsManager
             return null;
         }
     }
+
+    public static int GetCountByCompany(int company_id) {
+        SqlCommand cmd = new SqlCommand("SELECT count(*) FROM ReservationsView WHERE CompanyID=@CompanyID");
+        cmd.Parameters.AddWithValue("@CompanyID", company_id);
+        return Database.ExecuteScaler(cmd);
+    }
+
+
+
 
 }

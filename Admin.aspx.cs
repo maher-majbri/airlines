@@ -21,6 +21,11 @@ public partial class Admin : System.Web.UI.Page
         }
         else
         {
+            Session["UserID"] = dr["UserID"];
+            Session["UserName"] = dr["UserName"];
+            Session["UserEmail"] = dr["UserEmail"];
+            Session["UserPassword"] = dr["UserPassword"];
+            Session["UserType"] = dr["UserType"];
             Response.Redirect("Admin");
         }
     }

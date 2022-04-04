@@ -36,6 +36,23 @@ public class CompaniesManager
         Database.ExecuteCommand(cmd);
     }
 
+    public static void Update(string password,  int id)
+    {
+        SqlCommand cmd = new SqlCommand("UPDATE Companies SET CompanyPassword=@CompanyPassword WHERE CompanyID=@CompanyID");
+        cmd.Parameters.AddWithValue("@CompanyPassword", password);
+        cmd.Parameters.AddWithValue("@CompanyID", id);
+        Database.ExecuteCommand(cmd);
+    }
+
+    public static void Update(string name, string email, int id)
+    {
+        SqlCommand cmd = new SqlCommand("UPDATE Companies SET CompanyName=@CompanyName,CompanyEmail=@CompanyEmail WHERE CompanyID=@CompanyID");
+        cmd.Parameters.AddWithValue("@CompanyName", name);
+        cmd.Parameters.AddWithValue("@CompanyEmail", email);
+        cmd.Parameters.AddWithValue("@CompanyID", id);
+        Database.ExecuteCommand(cmd);
+    }
+
     public static void Delete(int id)
     {
         SqlCommand cmd = new SqlCommand("DELETE  FROM  Companies WHERE CompanyID=@CompanyID");
@@ -67,7 +84,7 @@ public class CompaniesManager
     public static bool IsUsed(int id)
     {
         //needs to be apdated to include other tables if needed
-        SqlCommand cmd = new SqlCommand("SELECT * FROM Flights WHERE CompanyID=@CompanyID");
+        SqlCommand cmd = new SqlCommand("SELECT * FROM Companies WHERE CompanyID=@CompanyID");
         cmd.Parameters.AddWithValue("@CompanyID", id);
         DataTable dt = Database.Execute(cmd);
         if (dt.Rows.Count > 0)
@@ -82,7 +99,7 @@ public class CompaniesManager
 
     public static DataRow CheckLogin(string email, string password)
     {
-        SqlCommand cmd = new SqlCommand("SELECT * FROM Company WHERE CompanyEmail=@CompanyEmail AND CompanyPassword=@CompanyPassword");
+        SqlCommand cmd = new SqlCommand("SELECT * FROM Companies WHERE CompanyEmail=@CompanyEmail AND CompanyPassword=@CompanyPassword");
         cmd.Parameters.AddWithValue("@CompanyEmail", email);
         cmd.Parameters.AddWithValue("@CompanyPassword", password);
         DataTable dt = Database.Execute(cmd);

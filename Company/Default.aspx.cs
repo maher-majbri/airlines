@@ -9,6 +9,8 @@ public partial class Company_Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        lblNumberOfReservations.Text =   ReservationsManager.GetCountByCompany(Convert.ToInt16(Session["CompanyID"])).ToString();
+        lblNumberOfFlights.Text = FlightsManager.GetCountByCompany(Convert.ToInt16(Session["CompanyID"])).ToString();
+        lblNumberOfScheduleSetup.Text = ScheduleManager.GetCountByCompany(Convert.ToInt16(Session["CompanyID"])).ToString();
     }
 }

@@ -6,7 +6,7 @@
 
     <h1 class="mt-5 display-6 text-capitalize text-center">View Reservations</h1>
 
-    <asp:GridView ID="grdReservations" runat="server" CssClass="table table-bordered" AutoGenerateColumns="False" BorderWidth="0"
+    <asp:GridView ID="grdReservations" runat="server" CssClass="table table-bordered" AutoGenerateColumns="False" BorderWidth="0px"
         DataSourceID="odsReservations" ToolTip="Please choose Class">
         <Columns>
             <asp:BoundField DataField="ReservationDate" HeaderText="Date and Time" />
@@ -17,8 +17,12 @@
             <asp:BoundField DataField="Children" HeaderText="Number of Children" />
         </Columns>
     </asp:GridView>
-    <asp:ObjectDataSource ID="odsReservations" runat="server" SelectMethod="Select" 
-        TypeName="ReservationsManager"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="odsReservations" runat="server" SelectMethod="SelectByCompany" 
+        TypeName="ReservationsManager">
+        <SelectParameters>
+            <asp:SessionParameter Name="company_id" SessionField="CompanyID" Type="Int32" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
 
 
 </asp:Content>

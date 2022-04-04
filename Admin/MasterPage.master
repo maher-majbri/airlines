@@ -98,6 +98,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="Users.aspx">Users</a>
+                                    <asp:LinkButton ID="lbtn" runat="server" OnClick="lbtn_Click" class="dropdown-item">Sign out</asp:LinkButton>
                                 </div>
                             </li>
 

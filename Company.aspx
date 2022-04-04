@@ -10,13 +10,13 @@
         <div class="row">
             <div class="col-md-6 mb-5 mb-md-0">
                 <div class="block">
-                    <h2 class="subtitle wow fadeInDown mt-5" data-wow-duration="500ms" data-wow-delay=".3s">Company Login</h2>
+                    <h2 class="subtitle wow fadeInDown mt-5" data-wow-duration="500ms" data-wow-delay=".3s">Airline Login</h2>
                     <p class="subtitle-des wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".5s">
-                        Login to company dashboard.
+                        Login to airline dashboard.
                     </p>
                     <div class="contact-form">
                             <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".8s">
-                                <asp:TextBox ID="txtEmail" runat="server" placeholder="Your Email" class="form-control" ></asp:TextBox>
+                                <asp:TextBox ID="txtEmail" runat="server" placeholder="Your Email" class="form-control" Text="buraq@gmail.com" ></asp:TextBox>
                             </div>
                             <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1s">
                                  <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" class="form-control" placeholder="Your Password"  ></asp:TextBox>

@@ -4,8 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-
-
     <section id="contact-section">
     <div class="container">
         <div class="row">
@@ -20,7 +18,7 @@
 
                     <div class="contact-form">
                             <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".8s">
-                                <asp:TextBox ID="txtEmail" runat="server" placeholder="Your Email" class="form-control" ></asp:TextBox>
+                                <asp:TextBox ID="txtEmail" runat="server" placeholder="Your Email" class="form-control" Text="ahmad@gmail.com" ></asp:TextBox>
                             </div>
                             <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay="1s">
                                  <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" class="form-control" placeholder="Your Password"  ></asp:TextBox>
@@ -41,7 +39,6 @@
     </div>
 </section>  
 
- 
 
 </asp:Content>
 

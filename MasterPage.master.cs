@@ -9,6 +9,22 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["MemberID"] != null)
+        {
+           lblMemberName.Text= Session["MemberName"].ToString();
+           pnlGuest.Visible = false;
+           pnlMember.Visible = true;
+        }
     }
+
+    protected void lbtn_Click(object sender, EventArgs e)
+    {
+        Session["MemberID"] = null;
+        Session["MemberDate"] = null;
+        Session["MemberName"] = null;
+        Session["MemberEmail"] = null;
+        Session["MemberPassword"] = null;
+        Response.Redirect("~/Default.aspx");
+    }
+
 }
